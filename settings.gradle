@@ -1,0 +1,7 @@
+//include ':inmobi'
+//include ':ironsource'
+//include ':leakcanary'//include ':hwpay'
+//include ':mopub-app'
+//include ':max'
+rootProject.name='UmpDemo'
+include ':app'
