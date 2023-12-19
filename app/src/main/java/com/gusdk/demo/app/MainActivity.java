@@ -15,23 +15,11 @@ import com.google.android.ump.UserMessagingPlatform;
 import com.ps.sdk.PSSDK;
 import com.ps.sdk.entity.PrivacyAuthorizationResult;
 import com.ps.sdk.tools.error.PrivacyAuthorizationException;
-//import com.ps.sdk.PSSDK;
-//import com.ps.sdk.entity.PrivacyAuthorizationResult;
-//import com.ps.sdk.tools.error.PrivacyAuthorizationException;
-
-//import java.util.concurrent.TimeUnit;
-//
-//import okhttp3.OkHttpClient;
-//import okhttp3.Request;
-//import okhttp3.Response;
-
 public class MainActivity extends Activity {
     private static final String TAG = "UMP_DEMO";
     private String productId = "your pid ";
     private String gamerId = "gamer id";
-
     private ProgressBar progressBar;
-
     private void showProgressBar(boolean show) {
         progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
     }
@@ -43,37 +31,6 @@ public class MainActivity extends Activity {
         progressBar = findViewById(R.id.progressBar);
         showProgressBar(true);
         initUMP();
-//
-//        String isGdprUrl = "https://service.haloapps.com/policy/init?__pkg=xxxx&__os=android";
-//        requestPrivacyApi(isGdprUrl, new ApiCallback() { // 获得是否是欧盟用户
-//            @Override
-//            public void onFinish(boolean result) {
-//                MainActivity.this.runOnUiThread(new Runnable() {
-//
-//                    @Override
-//                    public void run() {
-//                        if (result) {  // 如果是欧盟用户
-//                            // UMP操作
-//                            initUMP();
-//                        } else {
-//                            // PSSDK操作,如果没有使用PSSDK，此处可忽略
-////                            PSSDK.requestPrivacyAuthorization(MainActivity.this, productId, gamerId, new PSSDK.RequestPrivacyAuthorizationCallBack() {
-////                                @Override
-////                                public void onRequestSuccess(PrivacyAuthorizationResult privacyAuthorizationResult) {
-////                                    // 其他操作 ，比如初始化tasdk，mssdk等
-////                                }
-////
-////                                @Override
-////                                public void onRequestFail(PrivacyAuthorizationException e) {
-////                                    // 其他操作，比如初始化tasdk，mssdk等
-////                                }
-////                            });
-//                        }
-//                    }
-//                });
-//
-//            }
-//        });
     }
 
 
@@ -81,7 +38,7 @@ public class MainActivity extends Activity {
         // debugSettings 用于测试
         ConsentDebugSettings debugSettings = new ConsentDebugSettings.Builder(this)
                 .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
-                .addTestDeviceHashedId("6B268B4102A1961812FC511632EEAB9B")
+                .addTestDeviceHashedId("6B268B4102A1961812FC511632EEAB9B") // 用于测试的设备id,如何获得 https://developers.google.com/admob/android/privacy?hl=zh-cn#testing
                 .build();
 
         ConsentRequestParameters params = new ConsentRequestParameters
